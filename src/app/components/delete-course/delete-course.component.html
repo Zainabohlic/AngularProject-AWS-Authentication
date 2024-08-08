@@ -1,0 +1,27 @@
+<div class="container mt-4">
+  <h2>Delete Course</h2>
+  <form (ngSubmit)="onSubmit()" #deleteCourseForm="ngForm">
+    <div class="form-group">
+      <label for="courseId">Course ID</label>
+      <input 
+        type="number" 
+        id="courseId" 
+        name="courseId" 
+        class="form-control" 
+        [(ngModel)]="courseId" 
+        required 
+        #courseIdInput="ngModel"
+      />
+      <div *ngIf="courseIdInput.invalid && (courseIdInput.dirty || courseIdInput.touched)" class="text-danger">
+        <div *ngIf="courseIdInput.errors?.['required']">Course ID is required.</div>
+        <div *ngIf="courseIdInput.errors?.['min']">Course ID must be a positive number.</div>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-danger">Delete Course</button>
+    <a routerLink="/courses" class="btn btn-secondary ml-2">Cancel</a>
+  </form>
+  <div *ngIf="deleteSuccess !== undefined">
+    <p *ngIf="deleteSuccess">Course deleted successfully!</p>
+    <p *ngIf="!deleteSuccess">Failed to delete course. Please check the ID and try again.</p>
+  </div>
+</div>

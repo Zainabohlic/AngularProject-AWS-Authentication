@@ -1,0 +1,22 @@
+<div class="container mt-4">
+    <h2>Add Course</h2>
+    <form (ngSubmit)="addCourse()">
+      <div class="form-group">
+        <label for="courseId">Course ID:</label>
+        <input type="number" id="courseId" class="form-control" [(ngModel)]="course.courseId" name="courseId" required>
+      </div>
+      <div class="form-group">
+        <label for="courseName">Course Name:</label>
+        <input type="text" id="courseName" class="form-control" [(ngModel)]="course.courseName" name="courseName" required>
+      </div>
+      <div class="form-group">
+        <label for="prerequisite">Prerequisite:</label>
+        <input type="text" id="prerequisite" class="form-control" [(ngModel)]="course.prerequisite" name="prerequisite">
+      </div>
+      <button type="submit" class="btn btn-primary mt-2">Add Course</button>
+    </form>
+    <div id="successMessage" style="display:none; color: green; margin-top: 10px;">
+      Course added successfully!
+    </div>
+  </div>
+  

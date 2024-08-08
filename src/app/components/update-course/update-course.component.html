@@ -1,0 +1,53 @@
+<!-- <div class="container mt-4">
+    <h2>Update Course</h2>
+    <form (ngSubmit)="onSubmit()" #updateCourseForm="ngForm">
+      <div class="form-group">
+        <label for="courseId">Course ID</label>
+        <input 
+          type="number" 
+          id="courseId" 
+          name="courseId" 
+          class="form-control" 
+          [(ngModel)]="course.courseId" 
+          [value]="course.courseId ?? ''" 
+          required
+          #courseIdInput="ngModel"
+        />
+        <div *ngIf="courseIdInput.invalid && (courseIdInput.dirty || courseIdInput.touched)" class="text-danger">
+          <div *ngIf="courseIdInput.errors?.['required']">Course ID is required.</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="courseName">Course Name</label>
+        <input 
+          type="text" 
+          id="courseName" 
+          name="courseName" 
+          class="form-control" 
+          [(ngModel)]="course.courseName" 
+          required 
+          #courseNameInput="ngModel"
+        />
+        <div *ngIf="courseNameInput.invalid && (courseNameInput.dirty || courseNameInput.touched)" class="text-danger">
+          <div *ngIf="courseNameInput.errors?.['required']">Course Name is required.</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="prerequisite">Prerequisite</label>
+        <input 
+          type="text" 
+          id="prerequisite" 
+          name="prerequisite" 
+          class="form-control" 
+          [(ngModel)]="course.prerequisite"
+        />
+      </div>
+      <button type="submit" class="btn btn-primary">Update Course</button>
+      <a routerLink="/courses" class="btn btn-secondary ml-2">Cancel</a>
+    </form>
+    <div *ngIf="updateSuccess !== undefined">
+      <p *ngIf="updateSuccess">Course updated successfully!</p>
+      <p *ngIf="!updateSuccess">Failed to update course. Please check the details and try again.</p>
+    </div>
+  </div>
+   -->

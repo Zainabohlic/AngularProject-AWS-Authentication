@@ -1,0 +1,21 @@
+<!-- src/app/view-students/view-students.component.html -->
+<div class="container mt-4">
+    <h2>All Students</h2>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Full Name</th>
+          <th>Major</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let student of students">
+          <td>{{ student.id }}</td>
+          <td>{{ student.fullName }}</td>
+          <td>{{ student.major }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
