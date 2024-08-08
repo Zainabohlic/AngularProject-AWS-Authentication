@@ -1,27 +1,83 @@
-# MyApp
+# Angular Student and Course CRUD App
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.1.2.
+## Overview
 
-## Development server
+This Angular project demonstrates a basic application for managing students and courses with CRUD (Create, Read, Update, Delete) operations. The backend is handled by a .NET API, and the application includes user authentication using AWS Cognito.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Features
 
-## Code scaffolding
+- **Student and Course Management:** Perform CRUD operations for students and courses.
+- **Authentication:** AWS Cognito is used for user authentication and token management.
+- **Environment Variables:** Configured for secure and scalable operation.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Setup
 
-## Build
+### Prerequisites
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- [Node.js](https://nodejs.org/) (for running the Angular CLI)
+- [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0) (for the backend)
+- [AWS Cognito](https://aws.amazon.com/cognito/) (for authentication)
 
-## Running unit tests
+### 1. Clone the Repository
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```bash
+git clone <repository-url>
+cd <repository-folder>
+`````
 
-## Running end-to-end tests
+### 2. Install Dependencies
+```bash
+npm install
+````
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### 3. Set Up Environment Variables
+  - Create a .env file in the root directory and add your environment variables. For example:
+    ```bash
+    REACT_APP_API_URL=http://localhost:5000/api
+    REACT_APP_AWS_COGNITO_CLIENT_ID=your-client-id
+    REACT_APP_AWS_COGNITO_DOMAIN=your-cognito-domain
+    REACT_APP_AWS_REDIRECT_URI=http://localhost:4200/signin-redirect-callback
+    ```
+  - For example my enviornment file looks like:
+    ```bash
+      export const environment = {
+      production: true,
+      apiUrl: 'https://localhost:7162/api' ,
+      clientID: '389siapill6f4j35fqfn71tvbp', 
+      Client_Secret: '3ckvr9c08g1ue0a7ro1spdnhh1ddm2q3o00pq4s0i4quqr6vge0', 
+      redirectSignIn: 'http://localhost:4200/signin-redirect-callback', 
+      Cognito_Base_Url: 'https://login.transportation.dev',
+      redirectSignOut: "http://localhost:4200/signout-redirect-callback",
+      Scope: "email+openid+profile+aws.cognito.signin.user.admin",
+    };
+  ``
+### 4. Configure Authentication
+AWS Cognito handles user authentication. Upon successful login, users are redirected to the view students component.  
+![Logo](1.png)  
 
-## Further help
+### 5. Run the application
+  ```bash
+    ng serve
+  ````
+Visit http://localhost:4200 to view the application. 
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+![Logo](2.png)  
+
+![Logo](3.png)  
+
+
+
+### 6. Authentication Flow
+1. Login: Users are directed to the AWS Cognito login page.
+2. Token Management: On successful login, tokens are stored and used for subsequent API requests.
+3. Redirection: After login, users are redirected to the view students component.  
+![Logo](4.png)
+
+![Logo](1.png)  
+
+### 7. Backend API
+The backend API is built using .NET and handles CRUD operations for students and courses. Ensure that the API is running and accessible.  
+To access my backend api code follow this link [Backend API](https://nodejs.org/)
+
+## And you are good to go :)
